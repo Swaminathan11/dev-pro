@@ -1,1 +1,1 @@
-#### New test project for working on a few new features. 
+#### New test project for working on some new features. 
