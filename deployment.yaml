@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       labels:
-        app: dev-pro-app
+        app: dev-pro-apps
   template:
     metadata:
       name: dev-pro-pod
