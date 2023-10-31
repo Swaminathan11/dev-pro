@@ -1,5 +1,19 @@
 steps:
-- name: 'docker'
+
+#build the docker image
+- name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/dev-pro', '.']
-images:
-- 'gcr.io/$PROJECT_ID/dev-pro'   
+
+#push the docker image 
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/dev-pro']
+
+#deploy the container image to GKE
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - run
+  - --filename=deployment.yaml
+  - --image=gcr.io/$PROJECT_ID/dev-pro
+  - --location=us-central1-c
+  - --cluster=dev-pro
+  - --namespace=dev-prod

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-pro-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      labels:
+        app: dev-pro-app
+  template:
+    metadata:
+      name: dev-pro-pod
+      labels:
+        app: dev-pro-app
+    spec:
+      containers:
+      - name: dev-pro-app-image
+        image: gcr.io/rosy-ratio-402707/dev-pro:latest
+        ports:
+        - containerPort: 5000
+        env:
+          - name: PORT
+            value:  "5000"
