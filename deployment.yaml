@@ -13,7 +13,7 @@ spec:
         app: dev-pro-app
     spec:
       containers:
-      - name: dev-pro-app-image
+      - name: gke-dev-pro
         image: gcr.io/rosy-ratio-402707/dev-pro:latest
         ports:
         - containerPort: 5000
