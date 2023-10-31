@@ -9,7 +9,7 @@ steps:
   args: ['push', 'gcr.io/$PROJECT_ID/dev-pro']
 
 #deploy the container image to GKE
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/cloud-builders/gke-deploy'
   args:
   - run
   - --filename=deployment.yaml
