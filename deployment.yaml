@@ -6,11 +6,9 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      labels:
-        app: dev-pro-apps
+      app: dev-pro-app
   template:
     metadata:
-      name: dev-pro-pod
       labels:
         app: dev-pro-app
     spec:
@@ -21,4 +19,4 @@ spec:
         - containerPort: 5000
         env:
           - name: PORT
-            value:  "5000"
+            value: "5000"
