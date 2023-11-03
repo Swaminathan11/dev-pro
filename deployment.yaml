@@ -12,6 +12,8 @@ spec:
       labels:
         app: dev-pro-app
     spec:
+      imagePullSecrets:
+      - name: gcr-secret
       containers:
       - name: gke-dev-pro
         image: gcr.io/rosy-ratio-402707/dev-pro:latest
