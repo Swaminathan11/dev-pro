@@ -9,7 +9,7 @@ steps:
   args: ['push', 'gcr.io/$PROJECT_ID/dev-pro']
 
 #deploy the container image to GKE
-- name: 'gcr.io/cloud-builders/helm'
+- name: 'gcr.io/$PROJECT_ID/helm'
   args:
   - 'upgrade'
   - '--install'
