@@ -9,7 +9,10 @@ steps:
   args: ['push', 'gcr.io/$PROJECT_ID/dev-pro']
 
 #deploy the container image to GKE
-- name: 'gcr.io/cloud-builders-community/helm'
+- name: 'gcr.io/$PROJECT_ID/helm'
+  env:
+  - CLOUDSDK_COMPUTE_REGION=us-central1-c
+  - CLOUDSDK_CONTAINER_CLUSTER=dev-pro
   args:
   - 'upgrade'
   - '--install'
