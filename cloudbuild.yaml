@@ -9,14 +9,15 @@ steps:
   args: ['push', 'gcr.io/$PROJECT_ID/dev-pro']
 
 #deploy the container image to GKE
-- name: 'gcr.io/cloud-builders/gke-deploy'
+- name: 'gcr.io/cloud-builders/helm'
   args:
-  - run
-  - --filename=deployment.yaml
-  - --image=gcr.io/$PROJECT_ID/dev-pro
-  - --location=us-central1-c
-  - --cluster=dev-pro
-  - --namespace=dev-prod
+  - 'upgrade'
+  - '--install'
+  - 'dev-pro'
+  - './helm
+  - '--namespace=dev-prod'
+  - '--set=image.repository=gcr.io/$PROJECT_ID'
+  - '--set=image.tag=dev-pro'
 
 options:
   logging: CLOUD_LOGGING_ONLY
