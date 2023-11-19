@@ -14,7 +14,7 @@ steps:
   - 'upgrade'
   - '--install'
   - 'dev-pro'
-  - './helm
+  - './helm'
   - '--namespace=dev-prod'
   - '--set=image.repository=gcr.io/$PROJECT_ID'
   - '--set=image.tag=dev-pro'
